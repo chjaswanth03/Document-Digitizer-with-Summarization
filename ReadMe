@@ -39,3 +39,54 @@ Setup and Installation
    ```bash
    git clone https://github.com/yourusername/document-digitizer.git
    cd document-digitizer
+Backend Setup:
+
+Go to the backend folder:
+bash
+Copy code
+cd backend
+Install dependencies:
+bash
+Copy code
+pip install -r requirements.txt
+Run the backend server:
+bash
+Copy code
+uvicorn main:app --reload
+Frontend Setup:
+
+Open a new terminal, navigate to the frontend folder:
+bash
+Copy code
+cd ../frontend
+Install dependencies:
+bash
+Copy code
+npm install
+Run the frontend server:
+bash
+Copy code
+npm start
+Environment Variables:
+
+Ensure your backend URL is updated in the frontend /src/api.js file for deployment or development.
+Usage
+Home Page: Upload an image and click "Extract Text" to get the text extracted from the image.
+Summarization: After extraction, click "Summarize" to generate a concise summary of the text.
+API Endpoints
+1. Text Extraction - /extract-text/
+Method: POST
+Request: An image file (JPG, PNG, TIFF).
+Response:
+200 OK: { "extracted_text": "text from image" }
+400 Bad Request: { "error": "No text found in the image" }
+2. Text Summarization - /summarize/
+Method: POST
+Request: JSON { "text": "text to summarize" }
+Response:
+200 OK: { "summary": "summarized text" }
+400 Bad Request: { "error": "No text provided for summarization" }
+Deployment
+
+This project is licensed under the MIT License.
+
